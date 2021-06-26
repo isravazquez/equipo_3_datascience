@@ -17,6 +17,9 @@ gilberto.silvat2812@gmail.com
 Fernando Arriaga Palma
 arriaga141@gmail.com
 
+Bryan Daniel Moreno Abrego
+abre.go@outlook.com
+
 ### Descripción
 
 En este proyecto pusimos a prueba nuestras habilidades en R aprendidas en el curso de BEDU: Data Science. 
