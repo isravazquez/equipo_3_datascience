@@ -7,11 +7,12 @@
 # Vazquez Bernal Jaime Israel, israfullshot@gmail.com
 
 # Índice
-# Postwork 1, línea 16
-# Postwork 2, línea 67
-# Postwork 3, línea 125
-# Postwork 4, línea 206
+# Postwork 1, línea 17
+# Postwork 2, línea 68
+# Postwork 3, línea 126
+# Postwork 4, línea 207
 
+# NOTA: Cambiar dirección donde se descargarán y leerán los archivos CSV (en la línea 85).
 
 # POSTWORK 1
 
