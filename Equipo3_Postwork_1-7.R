@@ -15,8 +15,11 @@
 # Postwork 6, línea 413
 # Postwork 7, línea 491
 
-## NOTA: Cambiar dirección donde se descargarán y leerán los archivos CSV (en la línea 100).
+## NOTA 1: Cambiar la dirección donde se descargarán y leerán los archivos CSV (en la línea 100).
 ## Recordar que debe ser una carpeta vacía para que sólo se lean los archivos descargados.
+
+## NOTA 2: Cambiar la dirección donde se escribrirá el archivo CSV (en la línea 100) el cual 
+## posteriormente se leerá con la función create.fbRanks.dataframes().
 
 # POSTWORK 1
 
@@ -67,7 +70,8 @@ sum(table_scores)
 # Tabla resumen de la probabilidad conjunta y las probabilidades marginales.
 (final_summary <- as.data.frame(round(summary_table_probs, 4)))
 
-# install.packages("reactable")
+# Una alternativa para visualizar las tablas es mediante el uso de la biblioteca reactable.
+install.packages("reactable")
 library(reactable)
 (tabla_final <- reactable(final_summary, theme = reactableTheme(
   borderColor = "#dfe2e5",
@@ -81,6 +85,8 @@ library(reactable)
 
 
 # POSTWORK 2
+
+# Biblioteca utilizada para este postwork:
 library(dplyr)
 
 # Ahora vamos a generar un cúmulo de datos mayor al que se tenía, esta es una situación habitual
@@ -96,8 +102,8 @@ url1718 <- "https://www.football-data.co.uk/mmz4281/1718/SP1.csv"
 url1819 <- "https://www.football-data.co.uk/mmz4281/1819/SP1.csv"
 url1920 <- "https://www.football-data.co.uk/mmz4281/1920/SP1.csv"
 
-# NOTA: Modificar la dirección según el caso donde se deseen guardar y leer los archivos.
-# Recordar que debe ser una carpeta vacía, unicamente para estos archivos.
+## NOTA: Modificar la dirección según el caso donde se deseen guardar y leer los archivos.
+## Recordar que debe ser una carpeta vacía, unicamente para estos archivos.
 path <- "/home/hugomi/Documents/BEDU/Modulo2/Postwork3/Archivos"
 setwd(path)
 
@@ -152,7 +158,11 @@ dim(data_cleaned)
 
 
 # POSTWORK 3
+
+# Bibliotecas utilizadas para este postwork:
+library(dplyr)
 library(ggplot2)
+
 # Ahora graficaremos probabilidades (estimadas) marginales y conjuntas para el número de goles
 # que anotan en un partido el equipo de casa o el equipo visitante.
 
@@ -234,6 +244,9 @@ ggplot(joint_proba_goals, aes(x, y = Pxy)) + geom_col(col = "black", fill = "ora
 
 # POSTWORK 4
 
+# Bibliotecas utilizadas para este postwork:
+library(dplyr)
+
 # Ahora se investigará la dependencia o independencia del número de goles anotados por el equipo
 # de casa y el número de goles anotados por el equipo visitante mediante un procedimiento
 # denominado bootstrap, revisa bibliografía en internet para que tengas nociones de este desarrollo.
@@ -287,7 +300,7 @@ for(i in 1:repetitions){
 }
 # sample_n(goals,dim(goals)[1],replace = T) genera un muestreo de un data frame (goals) con el
 # mismo número de datos que el data frame original (dim(goals)[1]), pero con reemplazamiento
-# (algunos datos se pueden repetir), que precisamente es en lo que consiste el proceso bootstrap.
+# (algunos datos se repiten), que precisamente es en lo que consiste el proceso bootstrap.
 
 # Ahora, se crean las tablas de frecuencia para cada muestra.
 freq_absolute <- lapply(goals_samples, table)
@@ -344,6 +357,9 @@ hist(mean_samples, col = "gold", border = "black",
 
 # POSTWORK 5
 
+# Bibliotecas utilizadas para este postwork:
+library(dplyr)
+
 # 1. A partir del conjunto de datos de soccer de la liga española de las temporadas 2017/2018, 2018/2019 y
 # 2019/2020, crea el data frame SmallData, que contenga las columnas date, home.team, home.score,
 # away.team y away.score; esto lo puede hacer con ayuda de la función select del paquete dplyr.
@@ -355,7 +371,9 @@ SmallData <- select(data_cleaned, Date:FTAG)
 # Se renombran las columnas con los nombres requeridos para las siguientes funciones.
 SmallData <- rename(SmallData, date = Date, home.team = HomeTeam, away.team = AwayTeam, home.score = FTHG, away.score = FTAG)
 
-# Se establece la  ruta de trabajo.
+## Se establece la  ruta de trabajo, la carpeta donde se escribirá el archivo CSV del data frame anterior
+## y posteriormente se leerá de ahí mismo.
+## NOTA: Cambiar esta dirección a la carpeta deseada donde se guardará y leerá el archivo.
 setwd("/home/hugomi/Documents/BEDU/Modulo2/Postwork5")
 
 # Se escriben los datos en el archivo soccer.csv
@@ -366,7 +384,7 @@ write.csv(SmallData, "soccer.csv", quote = T, row.names = F)
 # que son data frames listos para la función rank.teams. Asigna estos data frames a variables llamadas
 # anotaciones y equipos.
 
-# install.packages("fbRanks")
+install.packages("fbRanks")
 library(fbRanks)
 
 # Se usa la función create.fbRanks.dataframes() que tiene como argumento el archivo de datos anterior.
@@ -411,6 +429,11 @@ predict(ranking, date = fecha[n])
 
 
 # POSTWORK 6
+
+# Bibliotecas utilizadas para este postwork:
+library(dplyr)
+install.packages('zoo')
+library(zoo)
 
 # Importa el conjunto de datos match.data.csv a R y realiza lo siguiente:
 
@@ -490,9 +513,11 @@ plot.ts(sumagoles_mes_alternativa$average, main = "Serie de tiempo", xlab = "Tie
 
 # POSTWORK 7
 
-# Utilizando el manejador de BDD Mongodb Compass (previamente instalado), deberás de realizar las siguientes acciones:
+# Bibliotecas utilizadas para este postwork:
+install.packages("mongolite")
+library(mongolite)
 
-library("mongolite")
+# Utilizando el manejador de BDD Mongodb Compass (previamente instalado), deberás de realizar las siguientes acciones:
 
 # Alojar el fichero match.data.csv en una base de datos llamada match_games, nombrando al collection como match
 data_match_games <- read.csv("https://raw.githubusercontent.com/beduExpert/Programacion-R-Santander-2021/main/Sesion-07/Postwork/match.data.csv")
