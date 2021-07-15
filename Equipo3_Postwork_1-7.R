@@ -8,17 +8,17 @@
 
 # Índice
 # Postwork 1, línea 26
-# Postwork 2, línea 89
-# Postwork 3, línea 162
-# Postwork 4, línea 247
-# Postwork 5, línea 360
-# Postwork 6, línea 433
-# Postwork 7, línea 516
+# Postwork 2, línea 91
+# Postwork 3, línea 164
+# Postwork 4, línea 249
+# Postwork 5, línea 362
+# Postwork 6, línea 435
+# Postwork 7, línea 518
 
-## NOTA 1: Cambiar la dirección donde se descargarán y leerán los archivos CSV (en la línea 109).
+## NOTA 1: Cambiar la dirección donde se descargarán y leerán los archivos CSV (en la línea 111).
 ## Recordar que debe ser una carpeta vacía para que sólo se lean los archivos descargados.
 
-## NOTA 2: Cambiar la dirección donde se escribrirá el archivo CSV (en la línea 379) el cual 
+## NOTA 2: Cambiar la dirección donde se escribrirá el archivo CSV (en la línea 381) el cual 
 ## posteriormente se leerá con la función create.fbRanks.dataframes().
 
 
@@ -75,6 +75,8 @@ sum(table_scores)
 # Una alternativa para visualizar las tablas es mediante el uso de la biblioteca reactable.
 install.packages("reactable")
 library(reactable)
+
+# Visualización de tabla de probabilidad conjunta con biblioteca reactable.
 (tabla_final <- reactable(final_summary, theme = reactableTheme(
   borderColor = "#dfe2e5",
   stripedColor = "#f6f8fa",
