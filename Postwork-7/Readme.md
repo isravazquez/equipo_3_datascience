@@ -36,11 +36,16 @@ Con `insert` se añaden las filas del _data frame_ a la colección
 m$insert(data_match_games)
 ```
 
+![alt text][img1]
+
+
 Una vez hecho esto, realizar un count para conocer el número de registros que se tiene en la colección
 
 ```r
 (m$count())
 ```
+
+![alt text][img2]
 
 Si se vuelve a cargar los datos a la base de datos, usar la siguiente instrucción para eliminar la base de datos y volver a crearla
 
@@ -62,8 +67,16 @@ La consulta requerida se obtiene al usar el formato JSON de la siguiente forma
 (consulta <- m$find('{"date" : "2015-12-20", "home_team" : "Real Madrid"}'))
 ```
 
+![alt text][img3]
+
+Se aprecia que el marcador final fue `10-2`, a favor del Real Madrid, por lo que fue una goleada.
+
 Por último, no olvides cerrar la conexión con la BDD
 
 ```r
 m$disconnect(gc = TRUE)
 ```
+
+[img1]: https://github.com/isravazquez/equipo_3_datascience/blob/master/Postwork-7/pw7-1.png "Postwork7ss1"
+[img2]: https://github.com/isravazquez/equipo_3_datascience/blob/master/Postwork-7/pw7-2.png "Postwork7ss2"
+[img3]: https://github.com/isravazquez/equipo_3_datascience/blob/master/Postwork-7/pw7-3.png "Postwork7ss3"
