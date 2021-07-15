@@ -7,19 +7,21 @@
 # Vazquez Bernal Jaime Israel, israfullshot@gmail.com
 
 # Índice
-# Postwork 1, línea 21
-# Postwork 2, línea 83
-# Postwork 3, línea 154
-# Postwork 4, línea 235
-# Postwork 5, línea 345
-# Postwork 6, línea 413
-# Postwork 7, línea 491
+# Postwork 1, línea 26
+# Postwork 2, línea 89
+# Postwork 3, línea 162
+# Postwork 4, línea 247
+# Postwork 5, línea 360
+# Postwork 6, línea 433
+# Postwork 7, línea 516
 
-## NOTA 1: Cambiar la dirección donde se descargarán y leerán los archivos CSV (en la línea 100).
+## NOTA 1: Cambiar la dirección donde se descargarán y leerán los archivos CSV (en la línea 109).
 ## Recordar que debe ser una carpeta vacía para que sólo se lean los archivos descargados.
 
-## NOTA 2: Cambiar la dirección donde se escribrirá el archivo CSV (en la línea 100) el cual 
+## NOTA 2: Cambiar la dirección donde se escribrirá el archivo CSV (en la línea 379) el cual 
 ## posteriormente se leerá con la función create.fbRanks.dataframes().
+
+
 
 # POSTWORK 1
 
