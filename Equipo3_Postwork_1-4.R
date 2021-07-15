@@ -12,7 +12,7 @@
 # Postwork 3, línea 126
 # Postwork 4, línea 207
 
-# NOTA: Cambiar dirección donde se descargarán y leerán los archivos CSV (en la línea 85).
+## NOTA: Cambiar dirección donde se descargarán y leerán los archivos CSV (en la línea 85).
 
 # POSTWORK 1
 
@@ -24,6 +24,8 @@ data_soccer <- read.csv("https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
 # de goles anotados por los equipos que jugaron en casa (FTHG) y los goles anotados por los equipos
 # que jugaron como visitante (FTAG)
 data_scores <- data.frame("Local_x" = data_soccer$FTHG, "Visitante_y" = data_soccer$FTAG)
+
+sample_n(data_scores, size = dim(data_scores)[1], replace = TRUE)
 
 # Consulta cómo funciona la función table en R al ejecutar en la consola ?table
 ?table
@@ -79,7 +81,7 @@ url1718 <- "https://www.football-data.co.uk/mmz4281/1718/SP1.csv"
 url1819 <- "https://www.football-data.co.uk/mmz4281/1819/SP1.csv"
 url1920 <- "https://www.football-data.co.uk/mmz4281/1920/SP1.csv"
 
-# NOTA: Modificar la dirección según el caso donde se deseen guardar y leer los archivos.
+## NOTA: Modificar la dirección según el caso donde se deseen guardar y leer los archivos.
 setwd("/home/hugomi/Documents/BEDU/Modulo2/Postwork3/DataPW")
 
 download.file(url = url1920, destfile = "D-1920.csv", mode = "wb")
